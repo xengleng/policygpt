@@ -1,12 +1,12 @@
 import streamlit as st
 
 import chromadb
-import os
+
 import requests
 
 # --- DeepSeek and ChromaDB Setup ---
 
-"DEEPSEEK_API_KEY" = st.secrets["DEEPSEEK_API_KEY"]
+DEEPSEEK_API_KEY = st.secrets["DEEPSEEK_API_KEY"]
 
 client = chromadb.CloudClient(
   api_key=st.secrets["CHROMADB_API_KEY"],
