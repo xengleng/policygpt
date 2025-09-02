@@ -6,7 +6,7 @@ import requests
 
 # --- DeepSeek and ChromaDB Setup ---
 
-os.environ["DEEPSEEK_API_KEY"] = st.secrets["DEEPSEEK_API_KEY"]
+"DEEPSEEK_API_KEY" = st.secrets["DEEPSEEK_API_KEY"]
 
 client = chromadb.CloudClient(
   api_key=st.secrets["CHROMADB_API_KEY"],
@@ -65,7 +65,7 @@ def generate_response(prompt, chat_history):
 
     url = "https://api.deepseek.com/v1/chat/completions"
     headers = {
-        "Authorization": f"Bearer {os.environ['DEEPSEEK_API_KEY']}",
+        "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
         "Content-Type": "application/json"
     }
 
