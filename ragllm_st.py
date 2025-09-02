@@ -1,5 +1,14 @@
 import streamlit as st
 
+import sys
+try:
+    import sqlite3
+    from sqlite3 import sqlite_version_info
+    assert sqlite_version_info >= (3, 35, 0)
+except Exception:
+    __import__("pysqlite3")
+    sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 import chromadb
 
 import requests
