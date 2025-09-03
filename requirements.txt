@@ -1,4 +1,9 @@
 pip >=25.2
 streamlit>=1.28.1
-chromadb
+#chromadb
 requests
+langchain-chroma
+langchain-huggingface
+httpx
+langchain-deepseek
+#!pip install streamlit
