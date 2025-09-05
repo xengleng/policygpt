@@ -32,8 +32,8 @@ embeddings = HuggingFaceEmbeddings(
 chromadb = Chroma(
     collection_name="logistics",
     embedding_function=embeddings,
-    chroma_cloud_api_key='ck-9qrfgDi3nVjXcjkMehtYwXNJvq7jBJthmFJviArWsByg',
-    tenant='9ada5868-6614-47ce-8d2a-a6b4d099b280',
+    chroma_cloud_api_key=st.secrets["CHROMADB_API_KEY"],
+    tenant=st.secrets["CHROMADB_TENANT"],
     database='groundKnowledge',
 )
 
@@ -65,7 +65,7 @@ for i in ranked_results:
 
 #----------- Set up LLM ---------------------
 
-DEEPSEEK_API_KEY = "sk-db9b2cdeb47242caa15565029e49ad58"
+DEEPSEEK_API_KEY = st.secrets["DEEPSEEK_API_KEY"]
 
 llm = ChatDeepSeek(
     api_key = DEEPSEEK_API_KEY,
