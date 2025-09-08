@@ -7,4 +7,3 @@ langchain_huggingface
 langchain_deepseek
 #!pip install streamlit
 sentence_transformers
-sys
