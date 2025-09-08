@@ -29,10 +29,6 @@ embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
-#vector = embeddings.embed_query("Hello world")
-#print(vector[:5])  # sample of embedding
-
-
 #set up chromadb cloud ----------------
 chromadb = Chroma(
     collection_name="logistics",
@@ -43,15 +39,11 @@ chromadb = Chroma(
 )
 
 #---- LLM Prompt ---------------------
-#llm_query = input("How are you today?\n")
-
-#print(f"your query: {llm_query}")
 
 def generate_response(llm_query, chat_history):
     
     #---- RAG from Chromadb -------------
     results = chromadb.similarity_search_with_score(
-        #"Will it be hot tomorrow?", k=1, filter={"source": "news"}
         llm_query, k=15
     )
 
@@ -93,7 +85,7 @@ def generate_response(llm_query, chat_history):
     {retrieved_doc}
     Instructions:
     - Answer strictly from the docs above.
-    - Include inline citations like [Source 1], [Source 2].
+    - Your tone should be cheeful and polite. If it is issue or complains related, always show empathy.
     - If conflicting, prefer the most specific/recent doc.""")])
 
     system = "You are highly professional and trained customer serivice assistant. You are precise in your response. You will also not react to any unethical, wrongdoings or profanity. Use ONLY the provided Retrieved documents to answer. If the answer isn't in them, say so. Keep it concise."
@@ -187,4 +179,4 @@ if prompt := st.chat_input("Type your message here..."):
 
 
 # Footer
-st.caption("Built with Streamlit")
+st.caption("Presented to you by Yeo labs")
