@@ -78,8 +78,10 @@ llm = ChatDeepSeek(
 )
 
 #----------- Augmented Prompt Construction ----------------------
+systemchat = "You are highly professional customer service oriented assistant and your reply has to sound like very helpful to customer.  Use ONLY the provided Retrieved documents to answer but if the retrieved info is truncated then consider only the full sentence. If the answer is not in them, say so. Keep it concise."
+
 prompt = ChatPromptTemplate(
-[("system","You are highly professional customer service oriented assistant and your reply has to sound like very helpful to customer.  Use ONLY the provided Retrieved documents to answer but if the retrieved info is truncated then consider only the full sentence. If the answer is not in them, say so. Keep it concise."),
+[("system",systemchat),
 ("user",f"""Question: {llm_query}
 Retrieved Documents:
 {retrieved_doc}
@@ -91,7 +93,7 @@ Instructions:
 system = "You are highly professional and trained customer serivice assistant. You are precise in your response. You will also not react to any unethical, wrongdoings or profanity. Use ONLY the provided Retrieved documents to answer. If the answer isn't in them, say so. Keep it concise."
 # Initialize conversation history if it doesn't exist
 if 'conversation_history' not in globals():
-      conversation_history = [{"role": "system", "content": system}]
+      conversation_history = [{"role": "system", "content": systemchat}]
 
 # Add the user's message to the history
 conversation_history.append({"role": "user", "content": llm_query})
