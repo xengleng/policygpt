@@ -1,4 +1,5 @@
 #pip >=25.2
+pysqlite3-binary>=0.5.3
 streamlit
 #chromadb
 langchain_core
