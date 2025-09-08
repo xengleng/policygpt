@@ -1,4 +1,4 @@
-pip >=25.2
+#pip >=25.2
 streamlit
 #chromadb
 langchain_core
