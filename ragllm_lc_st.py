@@ -6,6 +6,11 @@
 #.venv\Scripts\pip install sentence-transformers
 #langchain_community
 
+import sys
+__import__('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+
 #-----Import packages-----------------
 import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings

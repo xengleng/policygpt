@@ -1,6 +1,5 @@
 pip >=25.2
-streamlit>=1.28.1
-sqlite3 >= 3.35.0
+streamlit
 #chromadb
 langchain_core
 langchain_chroma
@@ -8,3 +7,4 @@ langchain_huggingface
 langchain_deepseek
 #!pip install streamlit
 sentence_transformers
+sys
